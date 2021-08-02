@@ -1,0 +1,25 @@
+name: Manual trigger
+
+on:
+  workflow_dispatch:
+    inputs:
+      fib_number:
+        description: "Fibonacci number to calculate"
+        required: true
+        default: "1"
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    name: Unit test
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up Python 3.8
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+
+      - name: Calculate fibonacci
+        run: |
+          python -m fibonacci.app ${{ github.event.iputs.fib_number }}
