@@ -10,6 +10,9 @@ class TestFibonacci(unittest.TestCase):
         self.assertEqual(fibonacci(2), 1)
         self.assertEqual(fibonacci(3), 2)
 
+    def test_fibonacci_negative(self):
+        self.assertEqual(fibonacci(-1), None)
+
 
 if __name__ == "__main__":
     unittest.main()
